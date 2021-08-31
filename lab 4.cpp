@@ -249,7 +249,6 @@ int main()
                cout << endl;
                break;
        } 
-
     }
     return 0;
 }

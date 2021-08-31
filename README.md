@@ -1,3 +1,4 @@
-# hi this oops weely codes for this sem
-# lab 4 code added
-# lab 5 is at comming thursday
+# Hello Everyone
+# This repositary contains all oops codes
+# Kindly take reference if u need
+# Now all 4 lab previous codes are updated.

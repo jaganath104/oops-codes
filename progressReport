@@ -1,0 +1,56 @@
+#include <iostream>
+#include<string>
+using namespace std;
+#define subjects 5
+int i;
+
+class classRoom
+{
+    private:
+        int rollNumber;
+        string nameOfStudent;
+        int marks[subjects];
+        
+    public:
+        classRoom()
+        {
+            rollNumber= 0;
+            nameOfStudent = "";
+            marks[0]=0;
+            marks[1]=0;
+            marks[2]=0;
+            marks[3]=0;
+            marks[4]=0;
+        }
+        
+        classRoom(int RollNumber, string Name)//paratenzied constructer
+        {
+            rollNumber= RollNumber;
+            nameOfStudent = Name ;
+            for(i=0;i<subjects;i++)
+            {
+                marks[i] = 0;
+            }
+        }
+        
+        void create(string Name, int RollNumber, int Marks[])//to create the student report card;
+        {
+            nameOfStudent = Name;
+            rollNumber =RollNumber;
+            for(i=0;i<subjects;i++)
+            {
+                marks[i] = Marks[i];
+            }
+            cout << "Profile of " << nameOfStudent << " is created \n"<< endl;
+        }
+        
+        void display()
+        {
+            cout << "Profile of " << rollNumber << "th roll_no: \n" << "name of student is:" << nameOfStudent << endl;
+            for(i=0;i<subjects;i++)
+            {
+                cout << "marks in " << i+1 << "subject :  " <<  marks[i] << endl ;
+            }
+            cout << endl;
+        }
+};

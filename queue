@@ -1,0 +1,119 @@
+//cs20b1070
+//s.n.jaganath
+//programm to implement circular queue using class
+#include<iostream>
+using namespace std;
+#define size 5//to define a particular size
+//programm to create a class
+class queue{
+    private:
+       int rear,front;
+       int a[size];
+    public:
+       void enqueue(int);
+       int dequeue();
+       void display();
+       int isFull();
+       void isEmpty();
+       int peek();
+       queue()
+       {
+           rear =-1;
+           front = -1;
+       }
+};
+int queue::isFull()//function for fully filled stack i.e 
+{
+  if((rear + 1) % size == front)
+     {
+        cout << "\n the queue is filled \n";
+        return -1;
+     }
+     else
+     {
+         return 0;
+     }
+}
+void queue::enqueue(int num)//function to push a element from rear of queue
+{
+     isFull();
+     if(front == -1 && rear == -1)
+     {
+        rear = front = 0;
+        a[rear] = num;
+     }
+     else
+     {
+        rear = (rear + 1) % size;
+        a[rear] = num;
+     }
+}
+void queue::isEmpty()//function for a empty stack
+{
+   if(front == -1 && rear == -1)
+    {
+        cout << "\n the queue is empty! \n";
+    }
+    
+}
+int queue::dequeue()//function to pop a element from front of queue
+{
+    int temp;
+    isEmpty();
+    if(front == rear)
+    {
+        temp = a[front];
+        front = rear = -1;
+    }
+    else
+    {
+       temp = a[front];
+       front = (front + 1) % size;
+    }
+    return temp;
+}
+int queue::peek()//function to print a front element
+{
+    isEmpty();
+    if(front != -1)
+    {
+      return a[front];
+    } 
+}
+void queue::display()//function to display queue
+{
+   int i = front ; 
+   isEmpty();
+   /*we are using circular concept so front and rear position may be at different position
+   so here we get two cases
+   1)front followed by rear
+   2)rear followed by front*/
+   if(front != -1)
+   {
+     if( front <= rear) 
+     { 
+      
+      while ( i <= rear ) 
+      { 
+         cout << " "<< a[i] << " "; 
+          ++ i ; 
+      } 
+     }  
+     else if( front > rear )  
+     { 
+       while ( i <= (size - 1))  
+       { 
+         cout << " "<< a[i] << " "; 
+         ++ i ; 
+       } 
+       i = 0 ; 
+       while ( i <= rear ) 
+       { 
+         cout << " "<< a[i] << " "; 
+         ++ i ; 
+       } 
+    
+    }
+ } 
+
+}
